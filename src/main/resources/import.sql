@@ -1,2 +1,2 @@
-INSERT INTO pizza (name, `descr`, price, photo) VALUES('margherita', 'pizza buonissima', 12.0, 'urlblabvlabal');
-INSERT INTO pizza (name, `descr`, price, photo) VALUES('perugina', 'pizza fantastica', 10.0, 'lalalalalall');
+INSERT INTO pizza (name, `descr`, price, photo) VALUES('margherita', 'pizza buonissima', 12.0, 'https://thumbs.dreamstime.com/b/pizza-rustic-italian-mozzarella-cheese-basil-leaves-35669930.jpg');
+INSERT INTO pizza (name, `descr`, price, photo) VALUES('perugina', 'pizza fantastica', 10.0, 'https://www.shutterstock.com/image-photo/fresh-homemade-italian-pizza-margherita-260nw-1829205563.jpg');
