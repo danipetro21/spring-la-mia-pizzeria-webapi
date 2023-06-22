@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 
 
 @Entity
-@Table(name = "pizze")
+@Table(name = "pizza")
 public class Pizza {
 
     @Id
@@ -15,7 +15,7 @@ public class Pizza {
 
     @Column(nullable = false, unique = true)
     private String name;
-    private String desc;
+    private String descr;
     private String photo;
     private float price;
 
@@ -35,12 +35,12 @@ public class Pizza {
         this.name = name;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescr() {
+        return descr;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescr(String descr) {
+        this.descr = descr;
     }
 
     public String getPhoto() {

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{/fragments/resources :: head(pageTitle='Pizza List')}">
+</head>
+<body>
+<h1>pizze List</h1>
+<hr>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Descrizione</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pizza : ${pizzaList}">
+        <td th:text="${pizza.name}"></td>
+        <td th:text="${pizza.descr}"></td>
+        <td th:text="${pizza.price}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
