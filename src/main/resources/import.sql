@@ -1,2 +1,15 @@
-INSERT INTO pizza (name, `descr`, price, photo) VALUES('margherita', 'pizza buonissima', 12.0, 'https://thumbs.dreamstime.com/b/pizza-rustic-italian-mozzarella-cheese-basil-leaves-35669930.jpg');
-INSERT INTO pizza (name, `descr`, price, photo) VALUES('perugina', 'pizza fantastica', 10.0, 'https://www.shutterstock.com/image-photo/fresh-homemade-italian-pizza-margherita-260nw-1829205563.jpg');
+INSERT INTO pizza (name, `descr`, price, photo) VALUES ('margherita', 'pizza buonissima', 12.0, 'https://thumbs.dreamstime.com/b/pizza-rustic-italian-mozzarella-cheese-basil-leaves-35669930.jpg');
+INSERT INTO pizza (name, `descr`, price, photo) VALUES ('perugina', 'pizza fantastica', 10.0, 'https://www.shutterstock.com/image-photo/fresh-homemade-italian-pizza-margherita-260nw-1829205563.jpg');
+INSERT INTO pizza (name, `descr`, price, photo) VALUES ('quattro formaggi', 'pizza con quattro formaggi', 14.0, 'https://thumbs.dreamstime.com/b/pizza-rustic-italian-mozzarella-cheese-basil-leaves-35669930.jpg');
+INSERT INTO pizza (name, `descr`, price, photo) VALUES ('diavola', 'pizza piccante con salame', 13.0, 'https://thumbs.dreamstime.com/b/pizza-rustic-italian-mozzarella-cheese-basil-leaves-35669930.jpg');
+INSERT INTO pizza (name, `descr`, price, photo) VALUES ('capricciosa', 'pizza con funghi, prosciutto, carciofi e olive', 15.0, 'https://thumbs.dreamstime.com/b/pizza-rustic-italian-mozzarella-cheese-basil-leaves-35669930.jpg');
+INSERT INTO pizza (name, `descr`, price, photo) VALUES ('hawaiiana', 'pizza con prosciutto cotto e ananas', 12.5, 'https://thumbs.dreamstime.com/b/pizza-rustic-italian-mozzarella-cheese-basil-leaves-35669930.jpg');
+INSERT INTO pizza (name, `descr`, price, photo) VALUES ('vegetariana', 'pizza con verdure miste', 12.0, 'https://thumbs.dreamstime.com/b/pizza-rustic-italian-mozzarella-cheese-basil-leaves-35669930.jpg');
+INSERT INTO pizza (name, `descr`, price, photo) VALUES ('calzone', 'pizza chiusa a forma di calzone', 13.5, 'https://thumbs.dreamstime.com/b/pizza-rustic-italian-mozzarella-cheese-basil-leaves-35669930.jpg');
+INSERT INTO pizza (name, `descr`, price, photo) VALUES ('romana', 'pizza sottile e croccante', 11.0, 'https://thumbs.dreamstime.com/b/pizza-rustic-italian-mozzarella-cheese-basil-leaves-35669930.jpg');
+INSERT INTO pizza (name, `descr`, price, photo) VALUES ('gorgonzola e noci', 'pizza con gorgonzola e noci', 13.0, 'https://thumbs.dreamstime.com/b/pizza-rustic-italian-mozzarella-cheese-basil-leaves-35669930.jpg');
+INSERT INTO pizza (name, `descr`, price, photo) VALUES ('marinara', 'pizza con pomodoro, aglio e origano', 10.0, 'https://thumbs.dreamstime.com/b/pizza-rustic-italian-mozzarella-cheese-basil-leaves-35669930.jpg');
+INSERT INTO pizza (name, `descr`, price, photo) VALUES ('salame', 'pizza con salame', 11.0, 'https://thumbs.dreamstime.com/b/pizza-rustic-italian-mozzarella-cheese-basil-leaves-35669930.jpg');
+INSERT INTO pizza (name, `descr`, price, photo) VALUES ('salsiccia', 'pizza con salsiccia', 12.0, 'https://thumbs.dreamstime.com/b/pizza-rustic-italian-mozzarella-cheese-basil-leaves-35669930.jpg');
+INSERT INTO pizza (name, `descr`, price, photo) VALUES ('funghi', 'pizza con funghi', 10.5, 'https://thumbs.dreamstime.com/b/pizza-rustic-italian-mozzarella-cheese-basil-leaves-35669930.jpg');
+INSERT INTO pizza (name, `descr`, price, photo) VALUES ('tonno', 'pizza con tonno', 11.5, 'https://thumbs.dreamstime.com/b/pizza-rustic-italian-mozzarella-cheese-basil-leaves-35669930.jpg');
