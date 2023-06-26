@@ -13,6 +13,7 @@
             method="post"
             id="pizza-form"
             class="row"
+            enctype="multipart/form-data"
     >
         <div class="col-6">
             <label class="form-label" for="pizza-name">Name</label>
@@ -37,7 +38,12 @@
             </div>
         </div>
 
-        <div class="col-12">
+        <div class="col-6">
+            <label class="form-label" for="pizza-price">Url immagine</label>
+            <input class="form-control" type="text" id="pizza-photo" th:field="*{photo}">
+        </div>
+
+        <div class="col-6">
             <label class="form-label" for="pizza-descr">Descrizione</label>
             <textarea class="form-control" id="pizza-descr" th:field="*{descr}" rows="5"></textarea>
         </div>
