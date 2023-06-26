@@ -16,16 +16,32 @@
     >
         <div class="col-6">
             <label class="form-label" for="pizza-name">Name</label>
-            <input class="form-control" type="text" id="pizza-name" th:field="*{name}">
+            <input class="form-control" type="text" id="pizza-name" th:field="*{name}"  th:errorClass="is-invalid">
+
+            <div class="form-text">Name must not be blank</div>
+            <div th:if="${#fields.hasErrors('name')}" class="invalid-feedback">
+                <ul>
+                    <li th:each="err : ${#fields.errors('name')}" th:text="${err}"></li>
+                </ul>
+            </div>
         </div>
+
         <div class="col-6">
             <label class="form-label" for="pizza-price">Prezzo</label>
-            <input class="form-control" type="number" id="pizza-price" th:field="*{price}">
+            <input class="form-control" type="number" id="pizza-price" th:field="*{price}"  th:errorClass="is-invalid">
+            <div th:if="${#fields.hasErrors('price')}" class="invalid-feedback">
+
+                <ul>
+                    <li th:each="err : ${#fields.errors('price')}" th:text="${err}"></li>
+                </ul>
+            </div>
         </div>
+
         <div class="col-12">
             <label class="form-label" for="pizza-descr">Descrizione</label>
             <textarea class="form-control" id="pizza-descr" th:field="*{descr}" rows="5"></textarea>
         </div>
+
         <div class="col-12 mt-3">
             <button class="btn btn-primary" type="submit">Save</button>
             <a class="btn btn-primary" th:href="@{/}">Cancel</a>

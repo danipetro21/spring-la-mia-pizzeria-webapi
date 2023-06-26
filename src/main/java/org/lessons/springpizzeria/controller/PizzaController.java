@@ -60,8 +60,11 @@ public class PizzaController {
     }
 
     @PostMapping("/create")
-    public String store(@Valid @ModelAttribute("book") Pizza formBook, BindingResult bindingResult) {
+    public String store(@Valid @ModelAttribute("pizza") Pizza formBook, BindingResult bindingResult) {
 
+        if (bindingResult.hasErrors()) {
+            return "/create";
+        }
 
         pizzaRepository.save(formBook);
 

@@ -2,7 +2,8 @@ package org.lessons.springpizzeria.model;
 
 
 import jakarta.persistence.*;
-
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 
 
 @Entity
@@ -13,10 +14,14 @@ public class Pizza {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false, unique = true)
+    @NotBlank(message = "Name must not be null or blank")
+    @Column(nullable = false)
     private String name;
+
+
     private String descr;
     private String photo;
+    @Min(0)
     private float price;
 
     public Integer getId() {
