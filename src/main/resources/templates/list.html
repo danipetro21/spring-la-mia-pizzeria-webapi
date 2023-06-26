@@ -9,11 +9,11 @@
 
 <div class="container">
 
-
-
+    <a class="btn btn-primary g-3" th:href="@{/create}">Aggiungi una pizza!</a>
 
 
     <div class="row row-cols-3 g-3 p-3">
+
         <div class="col" th:each="pizza : ${pizzaList}">
             <div class="card">
                 <a th:href="@{|/${pizza.id}|}">
@@ -26,7 +26,6 @@
             </div>
         </div>
     </div>
-
 
 
 </body>
