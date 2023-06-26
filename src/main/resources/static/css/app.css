@@ -3,3 +3,34 @@
     height: 15vw;
     object-fit: cover;
 }
+
+.formcontainer {
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid black;
+  padding:1rem;
+  margin-top: 50px;
+}
+
+.formcontainer .col-6 {
+  padding: 10px;
+}
+
+.formcontainer label {
+  margin-bottom: 5px;
+}
+
+.formcontainer input,
+.formcontainer textarea {
+  margin-bottom: 15px;
+}
+
+.formcontainer .invalid-feedback {
+  color: red;
+  margin-top: 5px;
+}
+
+.formcontainer .btn {
+  margin-top: 10px;
+  margin-right: 10px;
+}

@@ -6,20 +6,15 @@
 <body>
 <nav th:replace="/fragments/resources :: navbar"></nav>
 
-<div class="container">
-    <form
-            th:action="@{/create}"
-            th:object="${pizza}"
-            method="post"
-            id="pizza-form"
-            class="row"
-            enctype="multipart/form-data"
-    >
-        <div class="col-6">
-            <label class="form-label" for="pizza-name">Name</label>
-            <input class="form-control" type="text" id="pizza-name" th:field="*{name}"  th:errorClass="is-invalid">
 
-            <div class="form-text">Name must not be blank</div>
+<div class="container formcontainer">
+
+    <h1>Aggiungi una nuova pizza!!</h1>
+
+    <form th:action="@{/create}" th:object="${pizza}" method="post" id="pizza-form" class="row">
+        <div class="col-6">
+            <label class="form-label" for="pizza-name">Nome:</label>
+            <input class="form-control" type="text" id="pizza-name" th:field="*{name}" th:errorClass="is-invalid">
             <div th:if="${#fields.hasErrors('name')}" class="invalid-feedback">
                 <ul>
                     <li th:each="err : ${#fields.errors('name')}" th:text="${err}"></li>
@@ -28,8 +23,8 @@
         </div>
 
         <div class="col-6">
-            <label class="form-label" for="pizza-price">Prezzo</label>
-            <input class="form-control" type="number" id="pizza-price" th:field="*{price}"  th:errorClass="is-invalid">
+            <label class="form-label" for="pizza-price">Prezzo:</label>
+            <input class="form-control" type="number" id="pizza-price" th:field="*{price}" th:errorClass="is-invalid">
             <div th:if="${#fields.hasErrors('price')}" class="invalid-feedback">
 
                 <ul>
@@ -39,20 +34,21 @@
         </div>
 
         <div class="col-6">
-            <label class="form-label" for="pizza-price">Url immagine</label>
+            <label class="form-label" for="pizza-photo">URL immagine:</label>
             <input class="form-control" type="text" id="pizza-photo" th:field="*{photo}">
         </div>
 
         <div class="col-6">
-            <label class="form-label" for="pizza-descr">Descrizione</label>
+            <label class="form-label" for="pizza-descr">Descrizione:</label>
             <textarea class="form-control" id="pizza-descr" th:field="*{descr}" rows="5"></textarea>
         </div>
 
         <div class="col-12 mt-3">
-            <button class="btn btn-primary" type="submit">Save</button>
-            <a class="btn btn-primary" th:href="@{/}">Cancel</a>
+            <button class="btn btn-primary" type="submit">Salva</button>
+            <a class="btn btn-secondary" th:href="@{/}">Annulla</a>
         </div>
     </form>
-</div>
+
+
 </body>
 </html>
