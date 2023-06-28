@@ -6,17 +6,25 @@
 <nav th:replace="/fragments/resources :: navbar"></nav>
 
 
-<div class="container" th:object="${pizza}">
-  <h1 th:text="*{name}"></h1>
-  <hr>
-  <dl>
-    <dt>Descrizione</dt>
-    <dd th:text="*{descr}"></dd>
-    <dt>Prezzo pizza</dt>
-    <dd th:text="*{price}"></dd>
-    <dt>Foto</dt>
-    <dd><img th:src="*{photo}"></dd>
-  </dl>
+<!-- Jumbotron -->
+<div th:object="${pizza}" class="p-5 text-center bg-image"
+     th:style="'background-image: url(' + @{${pizza.photo}} + '); height: 400px; background-size: cover; background-position: center;'">
 </div>
+
+<div class="container-fluid" th:object="${pizza}">
+    <div class="h-100">
+        <div >
+            <div style="margin-bottom: 20px;">
+                <h1 class="mb-3" th:text="*{name}"></h1>
+                <h3 class="mb-3" th:text="*{descr}"></h3>
+                <h5 class="mb-3" th:text="'€ ' + *{price}"></h5>
+            </div>
+            <a class="btn btn-outline-dark btn-lg" href="#!" role="button">Ordina ORA!</a>
+        </div>
+    </div>
+</div>
+
+
+<!-- Jumbotron -->
 </body>
 </html>
