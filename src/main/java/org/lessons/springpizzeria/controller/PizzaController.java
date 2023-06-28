@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
@@ -71,4 +72,23 @@ public class PizzaController {
         return "redirect:/";
     }
 
+    @PostMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
+        Pizza pizzaToDelete = getPizzaById(id);
+        pizzaRepository.delete(pizzaToDelete);
+        return "redirect:/";
+    }
+
+
+
+
+    private Pizza getPizzaById(Integer id) {
+        // verificare se esiste un book con quell'id
+        Optional<Pizza> result = pizzaRepository.findById(id);
+        // se non esiste ritorno un http 404
+        if (result.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "pizza with id " + id + " not found");
+        }
+        return result.get();
+    }
 }

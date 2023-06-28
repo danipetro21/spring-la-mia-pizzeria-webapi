@@ -21,7 +21,15 @@
                 </a>
                 <div class="card-body">
                     <h5 class="card-title" th:text="${pizza.name}"></h5>
-                    <p class="card-text"><small th:text="${pizza.price}" class="text-muted"></small></p>
+                    <p class="card-text"><span th:text="${pizza.price}" class="text-muted"></span><span
+                            class="text-muted"> €</span></p>
+                </div>
+                <div class="card-footer d-flex align-items-center">
+                    <button type="button" class="btn btn-primary me-1"><i class="fa-solid fa-pen-to-square"></i></button>
+
+                    <form th:action="@{|/delete/${pizza.id}|}" method="post">
+                        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </form>
                 </div>
             </div>
         </div>
