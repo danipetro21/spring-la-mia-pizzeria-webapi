@@ -72,7 +72,7 @@ public class PizzaController {
     }
 
     @PostMapping("/delete/{id}")
-    public String delete(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
+    public String delete(@PathVariable Integer id) {
         Pizza pizzaToDelete = getPizzaById(id);
         pizzaRepository.delete(pizzaToDelete);
         return "redirect:/";
@@ -87,7 +87,7 @@ public class PizzaController {
     }
 
     @PostMapping("/edit/{id}")
-    public String update(@PathVariable Integer id, @Valid @ModelAttribute("pizza") Pizza formPizza, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String update(@PathVariable Integer id, @Valid @ModelAttribute("pizza") Pizza formPizza, BindingResult bindingResult) {
         Pizza pizzaToEdit = getPizzaById(id);
         formPizza.setId(pizzaToEdit.getId());
 
@@ -101,9 +101,7 @@ public class PizzaController {
 
 
     private Pizza getPizzaById(Integer id) {
-        // verificare se esiste un book con quell'id
         Optional<Pizza> result = pizzaRepository.findById(id);
-        // se non esiste ritorno un http 404
         if (result.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "pizza with id " + id + " not found");
         }

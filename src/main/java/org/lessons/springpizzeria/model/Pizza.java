@@ -18,7 +18,7 @@ public class Pizza {
     @Column(nullable = false)
     private String name;
 
-
+    @Column(columnDefinition = "TEXT")
     private String descr;
     private String photo;
     @Min(0)
