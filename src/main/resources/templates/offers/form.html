@@ -9,9 +9,10 @@
 <div class="container formcontainer">
 
 
-    <h1>NEW OFFERTA</h1>
+    <h1 th:text="${specialOffer.id != null} ? 'Edit Offer' : 'New Offer'"></h1>
 
-    <form th:action="@{'/offers/create'}" th:object="${specialOffer}" method="post" id="offer-form" class="row">
+
+    <form th:with="formAction=${specialOffer.id != null ? '/offers/edit/'+specialOffer.id : '/offers/create'}" th:action="@{${formAction}}" th:object="${specialOffer}" method="post" id="offer-form" class="row">
 
         <input type="hidden" th:field="*{pizza}">
 
