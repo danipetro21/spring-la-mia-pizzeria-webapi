@@ -6,25 +6,45 @@
 <nav th:replace="/fragments/resources :: navbar"></nav>
 
 
-<!-- Jumbotron -->
+
 <div th:object="${pizza}" class="p-5 text-center bg-image"
-     th:style="'background-image: url(' + @{${pizza.photo}} + '); height: 600px; background-size: cover; background-position: center;'">
+     th:style="'background-image: url(' + @{${pizza.photo}} + '); height: 400px; background-size: cover; background-position: center;'">
 </div>
 
-<div class="container-fluid" th:object="${pizza}">
+<div class="container my-2" th:object="${pizza}">
     <div class="h-100">
-        <div >
+        <div>
             <div style="margin-bottom: 20px;">
                 <h1 class="mb-3" th:text="*{name}"></h1>
                 <h3 class="mb-3" th:text="*{descr}"></h3>
                 <h5 class="mb-3" th:text="'€ ' + *{price}"></h5>
             </div>
-            <a class="btn btn-outline-dark btn-lg" href="#!" role="button">Ordina ORA!</a>
         </div>
     </div>
 </div>
 
+<div class="container my-2" th:if="${pizza.listOffer.size() > 0}">
+    <h2>Offerte Speciali</h2>
 
-<!-- Jumbotron -->
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Title</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="offer : ${pizza.listOffer}" th:object="${offer}">
+            <td th:text="*{#temporals.format(start, 'dd/MM/yyyy')}"></td>
+            <td th:text="*{#temporals.format(end, 'dd/MM/yyyy')}"></td>
+            <td th:text="*{title}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
 </body>
 </html>
