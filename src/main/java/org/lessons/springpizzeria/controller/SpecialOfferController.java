@@ -38,7 +38,7 @@ public class SpecialOfferController {
         }
         offer.setPizza(pizza.get());
         model.addAttribute("specialOffer", offer);
-        return "/offers/form";
+        return "offers/form";
     }
 
     @PostMapping("/create")

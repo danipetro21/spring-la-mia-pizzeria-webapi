@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:insert="~{/fragments/resources :: head(pageTitle='Pizza Form')}">
+<head th:insert="~{/fragments/resources :: head(pageTitle='Offer Form')}">
 </head>
 <body>
 <nav th:replace="/fragments/resources :: navbar"></nav>
@@ -18,7 +18,7 @@
 
         <div class="col-6">
             <label class="form-label" for="start-date">Start Date</label>
-            <input class="form-control" type="date" id="start-date" th:field="*{start}" th:errorClass="is-invalid">
+            <input class="form-control" type="date" id="start-date" name="start" th:value="${specialOffer.start}" th:errorClass="is-invalid">
             <div th:if="${#fields.hasErrors('start')}" class="invalid-feedback">
                 <ul>
                     <li th:each="err : ${#fields.errors('start')}" th:text="${err}"></li>
@@ -27,14 +27,15 @@
         </div>
 
         <div class="col-6">
-            <label class="form-label" for="end-date">End Date</label>
-            <input class="form-control" type="date" id="end-date" th:field="*{end}" th:errorClass="is-invalid">
+            <label class="form-label" for="end-date">Start Date</label>
+            <input class="form-control" type="date" id="end-date" name="end" th:value="${specialOffer.end}" th:errorClass="is-invalid">
             <div th:if="${#fields.hasErrors('end')}" class="invalid-feedback">
                 <ul>
                     <li th:each="err : ${#fields.errors('end')}" th:text="${err}"></li>
                 </ul>
             </div>
         </div>
+
 
         <div class="col-6">
             <label class="form-label" for="title">Tittle offer</label>
