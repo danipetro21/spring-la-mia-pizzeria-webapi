@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{/fragments/resources :: head(pageTitle='Pizza Form')}">
+</head>
+<body>
+<nav th:replace="/fragments/resources :: navbar"></nav>
+
+
+<div class="container formcontainer">
+
+
+    <h1>NEW OFFERTA</h1>
+
+    <form th:action="@{'/offers/create'}" th:object="${specialOffer}" method="post" id="offer-form" class="row">
+
+        <input type="hidden" th:field="*{pizza}">
+
+        <div class="col-6">
+            <label class="form-label" for="start-date">Start Date</label>
+            <input class="form-control" type="date" id="start-date" th:field="*{start}" th:errorClass="is-invalid">
+            <div th:if="${#fields.hasErrors('start')}" class="invalid-feedback">
+                <ul>
+                    <li th:each="err : ${#fields.errors('start')}" th:text="${err}"></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <label class="form-label" for="end-date">End Date</label>
+            <input class="form-control" type="date" id="end-date" th:field="*{end}" th:errorClass="is-invalid">
+            <div th:if="${#fields.hasErrors('end')}" class="invalid-feedback">
+                <ul>
+                    <li th:each="err : ${#fields.errors('end')}" th:text="${err}"></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <label class="form-label" for="title">Tittle offer</label>
+            <input class="form-control" type="text" id="title" th:field="*{title}">
+        </div>
+
+
+        <div class="col-12 mt-3">
+            <button class="btn btn-primary" type="submit">Salva</button>
+            <a class="btn btn-secondary" th:href="@{/}">Annulla</a>
+        </div>
+    </form>
+
+
+</body>
+</html>

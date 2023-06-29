@@ -6,7 +6,6 @@
 <nav th:replace="/fragments/resources :: navbar"></nav>
 
 
-
 <div th:object="${pizza}" class="p-5 text-center bg-image"
      th:style="'background-image: url(' + @{${pizza.photo}} + '); height: 400px; background-size: cover; background-position: center;'">
 </div>
@@ -21,6 +20,11 @@
             </div>
         </div>
     </div>
+</div>
+
+
+<div class="container my-3">
+    <a class="btn btn-primary" th:href="@{/offers/create(pizzaId=${pizza.id})}">Add Offers</a>
 </div>
 
 <div class="container my-2" th:if="${pizza.listOffer.size() > 0}">
@@ -40,6 +44,14 @@
             <td th:text="*{#temporals.format(start, 'dd/MM/yyyy')}"></td>
             <td th:text="*{#temporals.format(end, 'dd/MM/yyyy')}"></td>
             <td th:text="*{title}"></td>
+
+            <td class="d-flex align-items-center">
+                <a class="btn btn-primary me-1"><i
+                        class="fa-solid fa-pen-to-square"></i></a>
+                <form>
+                    <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>
