@@ -13,3 +13,18 @@ INSERT INTO pizza (name, descr, price, photo) VALUES ('Salame', 'Una pizza che s
 INSERT INTO pizza (name, descr, price, photo) VALUES ('Salsiccia', 'Una pizza per gli amanti delle carni gustose. La salsiccia italiana, sapientemente condita e cotta, è il protagonista di questa pizza che unisce tradizione e sapore in ogni boccone.', 12.0, 'https://blog.giallozafferano.it/loscrignodelbuongusto/wp-content/uploads/2020/06/5-7.jpg');
 INSERT INTO pizza (name, descr, price, photo) VALUES ('Funghi', 'Una pizza che celebra la bontà dei funghi freschi. Gusta l'aroma e la consistenza di funghi champignon o porcini, insieme alla mozzarella filante. Un piacere per i buongustai che amano la semplicità e la delicatezza dei funghi.', 10.5, 'https://www.petitchef.it/imgupl/recipe/pizza-ai-funghi-champignons--452646p700939.jpg');
 INSERT INTO pizza (name, descr, price, photo) VALUES ('Tonno', 'Un viaggio di sapori marini sulla tua pizza. Gusta la combinazione di tonno fresco, pomodoro e mozzarella, arricchita da un tocco di prezzemolo fresco. Una scelta leggera e gustosa per i palati che amano il mare.', 11.5, 'https://wips.plug.it/cips/buonissimo.org/cms/2012/05/pizza-con-il-tonno-alla-calabrese.jpg?w=712&a=c&h=406');
+INSERT INTO special_offer(pizza_id,start,end,title) VALUES (1, '2023-06-10', '2023-07-10', 'Patate e bibita in omaggio');
+INSERT INTO special_offer(pizza_id,start,end,title) VALUES (1, '2023-06-12', '2023-06-25', 'Sconto del 20% sul prezzo');
+INSERT INTO special_offer(pizza_id,start,end,title) VALUES (2, '2023-06-15', '2023-06-30', 'Offerta speciale per gli amanti del formaggio');
+INSERT INTO special_offer(pizza_id,start,end,title) VALUES (2, '2023-06-18', '2023-07-03', 'Pizza extra grande al prezzo di una piccola');
+INSERT INTO special_offer(pizza_id,start,end,title) VALUES (5, '2023-06-20', '2023-07-05', 'Combo famiglia: 2 pizze + 2 bevande');
+INSERT INTO special_offer(pizza_id,start,end,title) VALUES (5, '2023-06-22', '2023-07-07', 'Sconto studenti con presentazione di carta studente');
+INSERT INTO special_offer(pizza_id,start,end,title) VALUES (7, '2023-06-25', '2023-07-10', 'Offerta per il weekend: 3 pizze al prezzo di 2');
+INSERT INTO special_offer(pizza_id,start,end,title) VALUES (8, '2023-06-28', '2023-07-13', 'Consegna gratuita per ordini superiori a $30');
+INSERT INTO special_offer(pizza_id,start,end,title) VALUES (9, '2023-07-01', '2023-07-16', 'Sconto del 15% per i nuovi clienti');
+INSERT INTO special_offer(pizza_id,start,end,title) VALUES (9, '2023-07-03', '2023-07-18', 'Offerta del giorno: pizza margherita a metà prezzo');
+INSERT INTO special_offer(pizza_id,start,end,title) VALUES (9, '2023-07-06', '2023-07-21', '2x1 su tutte le pizze vegetariane');
+INSERT INTO special_offer(pizza_id,start,end,title) VALUES (13, '2023-07-08', '2023-07-23', 'Pizza gourmet con 3 ingredienti a scelta');
+INSERT INTO special_offer(pizza_id,start,end,title) VALUES (13, '2023-07-11', '2023-07-26', 'Offerta per compleanni: sconto del 25%');
+INSERT INTO special_offer(pizza_id,start,end,title) VALUES (15, '2023-07-14', '2023-07-29', 'Pizza senza glutine senza costi aggiuntivi');
+INSERT INTO special_offer(pizza_id,start,end,title) VALUES (15, '2023-07-17', '2023-08-01', 'Sconto del 10% per le pizze piccanti');
