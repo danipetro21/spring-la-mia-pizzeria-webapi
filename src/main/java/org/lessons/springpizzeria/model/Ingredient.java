@@ -20,7 +20,7 @@ public class Ingredient {
     @Column(nullable = false)
     private String name;
 
-    @ManyToMany(mappedBy = "ingredient")
+    @ManyToMany(mappedBy = "ingredients")
     private List<Pizza> pizze = new ArrayList<>();
 
     public Integer getId() {

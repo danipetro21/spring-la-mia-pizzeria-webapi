@@ -4,6 +4,7 @@ package org.lessons.springpizzeria.controller;
 import jakarta.validation.Valid;
 import org.lessons.springpizzeria.model.Pizza;
 import org.lessons.springpizzeria.model.SpecialOffer;
+import org.lessons.springpizzeria.repository.IngredientRepository;
 import org.lessons.springpizzeria.repository.PizzaRepository;
 import org.lessons.springpizzeria.repository.SpecialOfferRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,9 @@ public class SpecialOfferController {
     PizzaRepository pizzaRepository;
     @Autowired
     SpecialOfferRepository specialOfferRepository;
+
+    @Autowired
+    IngredientRepository ingredientRepository;
 
 
     @GetMapping("/create")

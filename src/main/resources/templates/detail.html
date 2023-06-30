@@ -10,15 +10,24 @@
      th:style="'background-image: url(' + @{${pizza.photo}} + '); height: 400px; background-size: cover; background-position: center;'">
 </div>
 
-<div class="container my-2" th:object="${pizza}">
-    <div class="h-100">
-        <div>
+<div class="container my-2">
+    <div class="row">
+        <div class="col-md-10" th:object="${pizza}">
             <div style="margin-bottom: 20px;">
                 <h1 class="mb-3" th:text="*{name}"></h1>
-                <h3 class="mb-3" th:text="*{descr}"></h3>
+                <h3 th:text="*{descr}"></h3>
                 <h5 class="mb-3" th:text="'€ ' + *{price}"></h5>
             </div>
         </div>
+        <div class="col-md-2">
+            <h1>Ingredienti</h1>
+            <ul th:if="${pizza.ingredients.size() > 0}">
+                <li th:each="ingr : ${pizza.ingredients}" th:text="*{ingr.name}"></li>
+            </ul>
+            <div th:unless="${pizza.ingredients.size() > 0}" class="alert alert-info">Nessun ingrediente</div>
+        </div>
+
+
     </div>
 </div>
 
@@ -46,9 +55,10 @@
             <td th:text="*{title}"></td>
 
             <td class="d-flex align-items-center">
-                <a class="btn btn-primary me-1" th:href="@{|/offers/edit/*{id}|}"><i class="fa-solid fa-pen-to-square"></i></a>
+                <a class="btn btn-primary me-1" th:href="@{|/offers/edit/*{id}|}"><i
+                        class="fa-solid fa-pen-to-square"></i></a>
                 <form th:action="@{|/offers/delete/${offer.id}|}" method="post">
-                    <button type="submit" class="btn btn-danger" ><i class="fa-solid fa-trash"></i></button>
+                    <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                 </form>
             </td>
         </tr>

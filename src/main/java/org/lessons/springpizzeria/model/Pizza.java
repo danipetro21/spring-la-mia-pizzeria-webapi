@@ -87,4 +87,12 @@ public class Pizza {
     public void setListOffer(List<SpecialOffer> listOffer) {
         this.listOffer = listOffer;
     }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
 }

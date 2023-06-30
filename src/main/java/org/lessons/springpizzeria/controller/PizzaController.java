@@ -3,6 +3,7 @@ package org.lessons.springpizzeria.controller;
 
 import jakarta.validation.Valid;
 import org.lessons.springpizzeria.model.Pizza;
+import org.lessons.springpizzeria.repository.IngredientRepository;
 import org.lessons.springpizzeria.repository.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,6 +23,9 @@ public class PizzaController {
 
     @Autowired
     private PizzaRepository pizzaRepository;
+
+    @Autowired
+    private IngredientRepository ingredientRepository;
 
 
     @GetMapping
