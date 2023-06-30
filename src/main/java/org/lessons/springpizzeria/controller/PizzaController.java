@@ -59,6 +59,7 @@ public class PizzaController {
     @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("pizza", new Pizza());
+        model.addAttribute("ingredients", ingredientRepository.findAll());
         return "/create";
     }
 
@@ -86,6 +87,7 @@ public class PizzaController {
     public String edit(@PathVariable Integer id, Model model) {
         Pizza pizzaToEdit = getPizzaById(id);
         model.addAttribute("pizza", pizzaToEdit);
+        model.addAttribute("ingredients", ingredientRepository.findAll());
         return "/create";
     }
 

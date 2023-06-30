@@ -42,7 +42,16 @@
             <label class="form-label" for="pizza-descr">Descrizione:</label>
             <textarea class="form-control" id="pizza-descr" th:field="*{descr}" rows="5"></textarea>
         </div>
+        <div class="col-12">
+            <h3>Ingredients</h3>
+            <div class="form-check" th:each="ingr : ${ingredients}">
+                <input class="form-check-input" type="checkbox" th:value="${ingr.id}" th:id="|ingr_${ingr.id}|"
+                       th:field="*{ingredients}">
+                <label class="form-check-label" th:for="|ingr_${ingr.id}|" th:text="${ingr.name}">
+                </label>
+            </div>
 
+        </div>
         <div class="col-12 mt-3">
             <button class="btn btn-primary" type="submit">Salva</button>
             <a class="btn btn-secondary" th:href="@{/}">Annulla</a>
