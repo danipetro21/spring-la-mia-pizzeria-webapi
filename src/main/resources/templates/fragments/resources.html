@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <!-- fragment che si chiama head e prende un parametro title -->
     <th:block th:fragment="head(pageTitle)">
@@ -38,13 +38,12 @@
 
         <ul class="navbar-nav ml-auto mr-3">
             <li class="nav-item active">
-                <a class="nav-link" th:href="@{/ingredients}" style="color: black;">Ingredients</a>
+                <a class="nav-link" th:href="@{/ingredients}" style="color: black;" sec:authorize="hasAuthority('ADMIN')">Ingredients</a>
             </li>
         </ul>
 
 
-
-        <div>
+        <div class="me-3">
             <form th:action="@{/}" method="GET">
                 <div class="input-group">
                     <input type="search" class="form-control" placeholder="Search by name"
@@ -56,12 +55,21 @@
             </form>
         </div>
 
-
-        <ul class="navbar-nav ml-auto mr-3">
+        <ul class="navbar-nav ml-3">
             <li class="nav-item active">
-                <a class="nav-link" th:href="@{/logout}" style="color: black;"><i class="fa-solid fa-right-from-bracket"></i></a>
+                <span sec:authentication="name"></span>
             </li>
         </ul>
+
+        <ul class="navbar-nav ml-auto mr-3">
+            <li class="nav-item active" sec:authorize="isAuthenticated()">
+                <a class="nav-link" th:href="@{/logout}" style="color: black;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </li>
+            <li class="nav-item active" sec:authorize="!isAuthenticated()">
+                <a class="nav-link" th:href="@{/login}" style="color: black;"><i class="fa-solid fa-right-from-bracket"></i> Login</a>
+            </li>
+        </ul>
+
 
     </div>
 </nav>

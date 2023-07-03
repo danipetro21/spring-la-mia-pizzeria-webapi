@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:insert="~{/fragments/resources :: head(pageTitle='Pizza List')}">
 </head>
 <body>
@@ -9,7 +9,7 @@
 
 <div class="container p-3">
 
-    <a class="btn btn-primary g-3 my-3" th:href="@{/create}">Aggiungi una pizza!</a>
+    <a class="btn btn-primary g-3 my-3" th:href="@{/create}" sec:authorize="hasAuthority('ADMIN')">Ingredients>Aggiungi una pizza!</a>
 
 
     <div class="row row-cols-3 g-3">
@@ -24,7 +24,7 @@
                     <p class="card-text"><span th:text="${pizza.price}" class="text-muted"></span><span
                             class="text-muted"> €</span></p>
                 </div>
-                <div class="card-footer d-flex align-items-center">
+                <div class="card-footer d-flex align-items-center" sec:authorize="hasAuthority('ADMIN')">
                     <a class="btn btn-primary me-1" th:href="@{|/edit/${pizza.id}|}"><i
                             class="fa-solid fa-pen-to-square"></i></a>
 

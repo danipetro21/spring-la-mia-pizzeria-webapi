@@ -1,5 +1,6 @@
 package org.lessons.springpizzeria.security;
 
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -41,12 +42,17 @@ public class SecurityConfiguration {
         http.authorizeHttpRequests()
                 .requestMatchers("/ingredients").hasAuthority("ADMIN")
                 .requestMatchers("/create/**").hasAuthority("ADMIN")
+                .requestMatchers("/offers/**").hasAuthority("ADMIN")
                 .requestMatchers("/edit/**").hasAuthority("ADMIN")
                 .requestMatchers("/delete/**").hasAuthority("ADMIN")
                 .requestMatchers(HttpMethod.POST).hasAuthority("ADMIN")
                 .requestMatchers("/**").permitAll()
                 .and().formLogin()
-                .and().logout();
+                .and().logout()
+                .logoutUrl("/logout") // specifica l'URL di logout
+                .logoutSuccessUrl("/") // specifica l'URL di redirect dopo il logout
+                .invalidateHttpSession(true) // invalida la sessione HTTP dopo il logout
+                .deleteCookies("JSESSIONID"); // elimina i cookie dopo il logout, se necessario
         return http.build();
 
     }

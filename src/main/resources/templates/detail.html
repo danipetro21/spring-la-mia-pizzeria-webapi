@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:insert="~{/fragments/resources :: head(pageTitle='Pizza Detail')}">
 <body>
 
@@ -32,7 +32,7 @@
 </div>
 
 
-<div class="container my-3">
+<div class="container my-3" sec:authorize="hasAuthority('ADMIN')">
     <a class="btn btn-primary" th:href="@{/offers/create(pizzaId=${pizza.id})}">Add Offers</a>
 </div>
 
@@ -54,7 +54,7 @@
             <td th:text="*{#temporals.format(end, 'dd/MM/yyyy')}"></td>
             <td th:text="*{title}"></td>
 
-            <td class="d-flex align-items-center">
+            <td class="d-flex align-items-center" sec:authorize="hasAuthority('ADMIN')">
                 <a class="btn btn-primary me-1" th:href="@{|/offers/edit/*{id}|}"><i
                         class="fa-solid fa-pen-to-square"></i></a>
                 <form th:action="@{|/offers/delete/${offer.id}|}" method="post">
