@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:insert="~{/fragments/resources :: head(pageTitle='Pizza List')}">
 </head>
 <body>
@@ -7,9 +8,21 @@
 <nav th:replace="/fragments/resources :: navbar"></nav>
 
 
+<div th:object="${pizza}" class="p-5 text-center bg-image" th:style="'position: relative; height: 400px; background-image: url(\'https://www.nicolasalvatore.com/web/wp-content/uploads/2015/12/Pizza_background.jpg\'); background-size: cover; background-position: center;'">
+    <div style="position: absolute; top: 0; right: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center;">
+        <h1 style="color: white;">Benvenuti da <br> Pizza Experis</h1>
+    </div>
+</div>
+
+
+
+
+
+
 <div class="container p-3">
 
-    <a class="btn btn-primary g-3 my-3" th:href="@{/create}" sec:authorize="hasAuthority('ADMIN')">Ingredients>Aggiungi una pizza!</a>
+    <a class="btn btn-primary g-3 my-3" th:href="@{/create}" sec:authorize="hasAuthority('ADMIN')">Aggiungi
+        una pizza!</a>
 
 
     <div class="row row-cols-3 g-3">
