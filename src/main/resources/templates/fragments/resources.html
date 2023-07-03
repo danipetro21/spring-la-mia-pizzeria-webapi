@@ -42,6 +42,8 @@
             </li>
         </ul>
 
+
+
         <div>
             <form th:action="@{/}" method="GET">
                 <div class="input-group">
@@ -53,6 +55,13 @@
                 </div>
             </form>
         </div>
+
+
+        <ul class="navbar-nav ml-auto mr-3">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/logout}" style="color: black;"><i class="fa-solid fa-right-from-bracket"></i></a>
+            </li>
+        </ul>
 
     </div>
 </nav>
