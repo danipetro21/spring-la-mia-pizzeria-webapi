@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head th:insert="~{/fragments/resources :: head(pageTitle='Pizza List')}">
+<head th:insert="~{/fragments/resources :: head(pageTitle='Pizza Experis')}">
 </head>
 <body>
 
@@ -29,7 +29,7 @@
 
         <div class="col" th:each="pizza : ${pizzaList}">
             <div class="card">
-                <a th:href="@{|/${pizza.id}|}">
+                <a th:href="@{|/detail/${pizza.id}|}">
                     <img class="card-img-top " th:src="${pizza.photo}" alt="Card image cap">
                 </a>
                 <div class="card-body">

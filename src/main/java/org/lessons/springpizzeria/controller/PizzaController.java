@@ -44,7 +44,7 @@ public class PizzaController {
     }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/detail/{id}")
     public String detail(@PathVariable("id") Integer pizzaId, Model model) {
         Optional<Pizza> result = pizzaRepository.findById(pizzaId);
         if (result.isPresent()) {

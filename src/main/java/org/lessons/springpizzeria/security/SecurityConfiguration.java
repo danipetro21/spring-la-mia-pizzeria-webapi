@@ -46,6 +46,7 @@ public class SecurityConfiguration {
                 .requestMatchers("/edit/**").hasAuthority("ADMIN")
                 .requestMatchers("/delete/**").hasAuthority("ADMIN")
                 .requestMatchers(HttpMethod.POST).hasAuthority("ADMIN")
+                .requestMatchers("/detail/**").hasAnyAuthority("USER","ADMIN")
                 .requestMatchers("/**").permitAll()
                 .and().formLogin()
                 .and().logout()
