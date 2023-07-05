@@ -2,9 +2,11 @@ package org.lessons.springpizzeria.controller;
 
 
 import jakarta.validation.Valid;
+import org.lessons.springpizzeria.dto.PizzaForm;
 import org.lessons.springpizzeria.model.Pizza;
 import org.lessons.springpizzeria.repository.IngredientRepository;
 import org.lessons.springpizzeria.repository.PizzaRepository;
+import org.lessons.springpizzeria.service.PizzaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -27,7 +29,8 @@ public class PizzaController {
     @Autowired
     private IngredientRepository ingredientRepository;
 
-
+    @Autowired
+    PizzaService pizzaService;
     @GetMapping
     public String list(@RequestParam(name = "keyword", required = false) String searchString, Model model) {
         List<Pizza> pizze;
@@ -58,20 +61,21 @@ public class PizzaController {
 
     @GetMapping("/create")
     public String create(Model model) {
-        model.addAttribute("pizza", new Pizza());
+        model.addAttribute("pizza", new PizzaForm());
         model.addAttribute("ingredients", ingredientRepository.findAll());
         return "/create";
     }
 
     @PostMapping("/create")
-    public String store(@Valid @ModelAttribute("pizza") Pizza formBook, BindingResult bindingResult) {
+    public String store(@Valid @ModelAttribute("pizza") PizzaForm pizzaForm, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
             return "/create";
         }
 
-        pizzaRepository.save(formBook);
+        pizzaService.create(pizzaForm);
 
+        model.addAttribute("ingredients", ingredientRepository.findAll());
         return "redirect:/";
     }
 
@@ -85,22 +89,20 @@ public class PizzaController {
 
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
-        Pizza pizzaToEdit = getPizzaById(id);
-        model.addAttribute("pizza", pizzaToEdit);
+    PizzaForm pizzaForm = pizzaService.getPizzaFormById(id);
+        model.addAttribute("pizza", pizzaForm);
         model.addAttribute("ingredients", ingredientRepository.findAll());
         return "/create";
     }
 
     @PostMapping("/edit/{id}")
-    public String update(@PathVariable Integer id, @Valid @ModelAttribute("pizza") Pizza formPizza, BindingResult bindingResult) {
-        Pizza pizzaToEdit = getPizzaById(id);
-        formPizza.setId(pizzaToEdit.getId());
+    public String update(@PathVariable Integer id, @Valid @ModelAttribute("pizza") PizzaForm formPizza, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
             return "/create";
         }
 
-        pizzaRepository.save(formPizza);
+        pizzaService.create(formPizza);
         return "redirect:/";
     }
 

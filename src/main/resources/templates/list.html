@@ -30,7 +30,7 @@
         <div class="col" th:each="pizza : ${pizzaList}">
             <div class="card">
                 <a th:href="@{|/detail/${pizza.id}|}">
-                    <img class="card-img-top " th:src="${pizza.photo}" alt="Card image cap">
+                    <img class="card-img-top " th:src="@{|/files/photo/*{id}|}" alt="Card image cap">
                 </a>
                 <div class="card-body">
                     <h5 class="card-title" th:text="${pizza.name}"></h5>

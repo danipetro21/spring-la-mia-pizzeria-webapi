@@ -1,54 +1,32 @@
-package org.lessons.springpizzeria.model;
-
+package org.lessons.springpizzeria.dto;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import org.lessons.springpizzeria.model.Ingredient;
+import org.lessons.springpizzeria.model.SpecialOffer;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
 
+public class PizzaForm {
 
-@Entity
-@Table(name = "pizza")
-public class Pizza {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotBlank(message = "Name must not be null or blank")
-    @Column(nullable = false)
     private String name;
 
-    @Column(columnDefinition = "TEXT")
+
     private String descr;
-    @Lob
-    @Column(length = 16777215)
-    private byte[] photo;
+
     @Min(0)
     private float price;
 
-    @OneToMany(mappedBy = "pizza", cascade = {CascadeType.REMOVE})
-    private List<SpecialOffer> listOffer = new ArrayList<>();
+    private MultipartFile photoFile;
 
-
-    @ManyToMany
-    @JoinTable(
-            name = "pizza_ingredient",
-            joinColumns = @JoinColumn(name = "pizza_id"),
-            inverseJoinColumns = @JoinColumn(name = "ingredient_id")
-    )
     private List<Ingredient> ingredients = new ArrayList<>();
-
-
-    public byte[] getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(byte[] photo) {
-        this.photo = photo;
-    }
 
     public Integer getId() {
         return id;
@@ -82,12 +60,12 @@ public class Pizza {
         this.price = price;
     }
 
-    public List<SpecialOffer> getListOffer() {
-        return listOffer;
+    public MultipartFile getPhotoFile() {
+        return photoFile;
     }
 
-    public void setListOffer(List<SpecialOffer> listOffer) {
-        this.listOffer = listOffer;
+    public void setPhotoFile(MultipartFile photoFile) {
+        this.photoFile = photoFile;
     }
 
     public List<Ingredient> getIngredients() {

@@ -35,14 +35,20 @@
         </div>
 
         <div class="col-6">
-            <label for="coverFile" class="form-label">Cover</label>
-            <input class="form-control" type="file" id="coverFile">
+            <label for="photoFile" class="form-label">Photo</label>
+            <input class="form-control" type="file" id="photoFile" th:field="*{photoFile}">
+            <div th:if="${#fields.hasErrors('photoFile')}" class="invalid-feedback">
+                <ul>
+                    <li th:each="err : ${#fields.errors('photoFile')}" th:text="${err}"></li>
+                </ul>
+            </div>
         </div>
 
         <div class="col-6">
             <label class="form-label" for="pizza-descr">Descrizione:</label>
             <textarea class="form-control" id="pizza-descr" th:field="*{descr}" rows="5"></textarea>
         </div>
+
         <div class="col-6">
             <h3>Ingredients</h3>
             <div class="form-check" th:each="ingr : ${ingredients}">
