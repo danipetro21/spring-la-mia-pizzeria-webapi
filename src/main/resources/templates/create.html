@@ -11,7 +11,7 @@
     <h1 th:text="${isEdit ? 'Edit Pizza' : 'New Pizza'}"></h1>
 
     <form th:with="formAction=${isEdit ? '/edit/'+ pizza.id : '/create'}"
-          th:action="@{${formAction}}" th:object="${pizza}" method="post" id="pizza-form" class="row">
+          th:action="@{${formAction}}" th:object="${pizza}" method="post" id="pizza-form" class="row" enctype="multipart/form-data">
         <div class="col-6">
             <label class="form-label" for="pizza-name">Nome:</label>
             <input class="form-control" type="text" id="pizza-name" th:field="*{name}" th:errorClass="is-invalid">
@@ -35,8 +35,8 @@
         </div>
 
         <div class="col-6">
-            <label class="form-label" for="pizza-photo">URL immagine:</label>
-            <input class="form-control" type="text" id="pizza-photo" th:field="*{photo}">
+            <label for="coverFile" class="form-label">Cover</label>
+            <input class="form-control" type="file" id="coverFile">
         </div>
 
         <div class="col-6">
